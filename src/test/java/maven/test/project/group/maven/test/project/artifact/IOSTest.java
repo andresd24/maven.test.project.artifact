@@ -39,7 +39,7 @@ public class IOSTest
     	cap.setCapability(MobileCapabilityType.PLATFORM_NAME, "IOS");
     	cap.setCapability(MobileCapabilityType.PLATFORM_VERSION, "12.4");
     	cap.setCapability(MobileCapabilityType.AUTOMATION_NAME, AutomationName.IOS_XCUI_TEST);
-    	cap.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, 240);
+    	cap.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, 5000);
     	
     	cap.setCapability(MobileCapabilityType.APP, "//Users/andres/Desktop/tempappadv.app");
 
@@ -58,10 +58,9 @@ public class IOSTest
 		aprender = driver.findElement(By.xpath("//XCUIElementTypeOther[@name='Aprende']"));
 		aprender.click();
 		
-		
 		WebElement flor = wait.until(
-		        ExpectedConditions.visibilityOfElementLocated(By.xpath("//XCUIElementTypeStaticText[@name='La Flor de La Vida']")));
-		flor = driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name='La Flor de La Vida']"));
+		        ExpectedConditions.visibilityOfElementLocated(By.xpath("//XCUIElementTypeStaticText[@name=\"La Flor de La Vida\"]")));
+		flor = driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name=\"La Flor de La Vida\"]"));
 		System.out.println(flor.getText());
 		assertEquals("not named as title", "La Flor de La Vida", flor.getText());
 		
@@ -75,7 +74,7 @@ public class IOSTest
 	
 	@After
 	public void End() {
-		driver.close();		
+		//driver.close();		
 	}
 	
 }
